@@ -12,3 +12,18 @@ canvas{
     background-color: white;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+.btns{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.colorbtn{
+    display: inline-block;
+    padding: 0;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
+    cursor: pointer;
+}
