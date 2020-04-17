@@ -1,6 +1,7 @@
 @import "reset.css";
 
 body{
+    background-color: #fff5f5;
     text-align: center;
 }
 
@@ -34,8 +35,12 @@ canvas{
     background-color: #59636e;
 }
 
-.btns{
+.rangestyle{
     margin-top: 15px;
+}
+
+.btns{
+    margin-top: 10px;
     text-align: center;
 }
 
