@@ -2,20 +2,25 @@ const canvas = document.getElementById("jscanvas");
 const range = document.getElementById("jsrange");
 const ctx = canvas.getContext('2d');
 
-const INITIAL_COLOR = "#343a40";
 const CANVAS_SIZE = 400;
 
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
-ctx.strokeStyle = INITIAL_COLOR;
+
+ctx.strokeStyle = "#343a40";
 ctx.lineWidth = 2.5;
 
 let painting = false;
 
+function handleBrushSize(event){
+    brushSize = range.value;
+    ctx.lineWidth = brushSize;
+}
+
 function onMouseMove(event){
     const x = event.offsetX;
     const y = event.offsetY;
-    if(!painting){
+    if (!painting) {
         ctx.beginPath();
         ctx.moveTo(x, y);
     } else {
@@ -31,12 +36,6 @@ function startPainting(event){
 function stopPainting(event){
     painting = false;
 }
-
-function handleBrushSize(event){
-    const brushSize = range.value;
-    ctx.lineWidth = brushSize;
-}
-
 
 if(canvas){
     canvas.addEventListener("mousemove", onMouseMove);
