@@ -2,6 +2,7 @@ const canvas = document.getElementById("jscanvas");
 const range = document.getElementById("jsrange");
 const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName("jscolorbtn");
+const clear = document.getElementById("jsclear");
 
 const CANVAS_SIZE = 400;
 const INITIAL_COLOR = "#343a40"
@@ -46,6 +47,10 @@ function handleChangeColor(event){
 
 Array.from(colors).forEach(color => color.addEventListener("click", handleChangeColor))
 
+function handleResetCanvas(event){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 if(canvas){
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
@@ -54,4 +59,8 @@ if(canvas){
 
 if(range){
     range.addEventListener("input", handleBrushSize)
+}
+
+if(clear){
+    clear.addEventListener("click", handleResetCanvas);
 }
