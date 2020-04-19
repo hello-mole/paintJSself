@@ -1,13 +1,15 @@
 const canvas = document.getElementById("jscanvas");
 const range = document.getElementById("jsrange");
 const ctx = canvas.getContext('2d');
+const colors = document.getElementsByClassName("jscolorbtn");
 
 const CANVAS_SIZE = 400;
+const INITIAL_COLOR = "#343a40"
 
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
 
-ctx.strokeStyle = "#343a40";
+ctx.strokeStyle = INITIAL_COLOR;
 ctx.lineWidth = 2.5;
 
 let painting = false;
@@ -36,6 +38,13 @@ function startPainting(event){
 function stopPainting(event){
     painting = false;
 }
+
+function handleChangeColor(event){
+    changedColor = event.target.style.backgroundColor
+    ctx.strokeStyle = changedColor;
+}
+
+Array.from(colors).forEach(color => color.addEventListener("click", handleChangeColor))
 
 if(canvas){
     canvas.addEventListener("mousemove", onMouseMove);
