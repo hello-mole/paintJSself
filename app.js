@@ -3,6 +3,7 @@ const range = document.getElementById("jsrange");
 const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName("jscolorbtn");
 const clear = document.getElementById("jsclear");
+const mode = document.getElementById("jsMode");
 
 const CANVAS_SIZE = 400;
 const INITIAL_COLOR = "#343a40"
@@ -14,6 +15,7 @@ ctx.strokeStyle = INITIAL_COLOR;
 ctx.lineWidth = 2.5;
 
 let painting = false;
+let full = false;
 
 function handleBrushSize(event){
     brushSize = range.value;
@@ -45,22 +47,44 @@ function handleChangeColor(event){
     ctx.strokeStyle = changedColor;
 }
 
-Array.from(colors).forEach(color => color.addEventListener("click", handleChangeColor))
-
 function handleResetCanvas(event){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function handleChangeMode(event){
+    if(!full){
+        full = true;
+        mode.innerText = "full";
+    } else {
+        full = false;
+        mode.innerText = "paint";
+    }
+}
+
+function changeCanvasColor(event){
+    ctx.fillStyle = ctx.strokeStyle
+    if(full){
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
 }
 
 if(canvas){
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
     canvas.addEventListener("mouseup", stopPainting);
+    canvas.addEventListener("click", changeCanvasColor);
 }
 
 if(range){
     range.addEventListener("input", handleBrushSize)
 }
 
+Array.from(colors).forEach(color => color.addEventListener("click", handleChangeColor))
+
 if(clear){
     clear.addEventListener("click", handleResetCanvas);
+}
+
+if(mode){
+    mode.addEventListener("click", handleChangeMode);
 }
