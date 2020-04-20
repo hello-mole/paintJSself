@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName("jscolorbtn");
 const clear = document.getElementById("jsclear");
 const mode = document.getElementById("jsMode");
+const save = document.getElementById("jsSave");
 
 const CANVAS_SIZE = 400;
 const INITIAL_COLOR = "#343a40"
@@ -35,7 +36,8 @@ function onMouseMove(event){
 }
 
 function startPainting(event){
-    painting = true;
+    if(event.button === 0){
+    painting = true;}
 }
 
 function stopPainting(event){
@@ -68,11 +70,18 @@ function changeCanvasColor(event){
     }
 }
 
+function handleSave(event){
+    const savingImage = canvas.toDataURL('image/jpeg', 1.0);
+    const savebtn = document.createElement("BUTTON");
+    
+}
+
 if(canvas){
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("click", changeCanvasColor);
+    canvas.addEventListener("contextmenu", e => e.preventDefault())
 }
 
 if(range){
@@ -87,4 +96,8 @@ if(clear){
 
 if(mode){
     mode.addEventListener("click", handleChangeMode);
+}
+
+if(save){
+    save.addEventListener("click", handleSave);
 }
