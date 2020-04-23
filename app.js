@@ -2,7 +2,7 @@ const canvas = document.getElementById("jscanvas");
 const range = document.getElementById("jsrange");
 const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName("jscolorbtn");
-const clear = document.getElementById("jsclear");
+const clear = document.getElementById("jsClear");
 const mode = document.getElementById("jsMode");
 const save = document.getElementById("jsSave");
 
@@ -78,7 +78,7 @@ function handleSave(event){
     const image = canvas.toDataURL('image/png');
     const link = document.createElement("a");
     link.href = image;
-    link.download = "paintJS";
+    link.download = "done.js";
     link.click();
 }
 
