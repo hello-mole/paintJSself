@@ -14,6 +14,8 @@ canvas.height = CANVAS_SIZE;
 
 ctx.strokeStyle = INITIAL_COLOR;
 ctx.lineWidth = 2.5;
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 let painting = false;
 let full = false;
@@ -66,6 +68,8 @@ function handleChangeMode(event){
 function changeCanvasColor(event){
     ctx.fillStyle = ctx.strokeStyle
     if(full){
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "white";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 }
