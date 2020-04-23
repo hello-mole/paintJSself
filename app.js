@@ -71,9 +71,11 @@ function changeCanvasColor(event){
 }
 
 function handleSave(event){
-    const savingImage = canvas.toDataURL('image/jpeg', 1.0);
-    const savebtn = document.createElement("BUTTON");
-   
+    const image = canvas.toDataURL('image/png');
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "paintJS";
+    link.click();
 }
 
 if(canvas){
