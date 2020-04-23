@@ -73,7 +73,7 @@ function changeCanvasColor(event){
 function handleSave(event){
     const savingImage = canvas.toDataURL('image/jpeg', 1.0);
     const savebtn = document.createElement("BUTTON");
-    
+   
 }
 
 if(canvas){
