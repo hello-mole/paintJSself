@@ -18,7 +18,7 @@ ctx.fillStyle = "white";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 let painting = false;
-let full = false;
+let fill = false;
 
 function handleBrushSize(event){
     brushSize = range.value;
@@ -56,18 +56,18 @@ function handleResetCanvas(event){
 }
 
 function handleChangeMode(event){
-    if(!full){
-        full = true;
-        mode.innerText = "full";
+    if(!fill){
+        fill = true;
+        mode.innerText = "fill";
     } else {
-        full = false;
+        fill = false;
         mode.innerText = "paint";
     }
 }
 
 function changeCanvasColor(event){
     ctx.fillStyle = ctx.strokeStyle
-    if(full){
+    if(fill){
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "white";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
