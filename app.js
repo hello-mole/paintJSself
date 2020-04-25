@@ -78,7 +78,7 @@ function handleSave(event){
     const image = canvas.toDataURL('image/png');
     const link = document.createElement("a");
     link.href = image;
-    link.download = "done.js";
+    link.download = "painting";
     link.click();
 }
 
