@@ -53,6 +53,8 @@ function handleChangeColor(event){
 
 function handleResetCanvas(event){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function handleChangeMode(event){
@@ -68,8 +70,6 @@ function handleChangeMode(event){
 function changeCanvasColor(event){
     ctx.fillStyle = ctx.strokeStyle
     if(fill){
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "white";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 }
